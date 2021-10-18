@@ -1,0 +1,171 @@
+﻿<Window x:Class="Calculadora.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculadora"
+        mc:Ignorable="d"
+        Title="Calculadora" Height="550" Width="450" MinHeight="350" MinWidth="250" Icon="numbers.ico">
+
+    <Window.Resources>
+        <!--Resultado-->
+        <Style TargetType="{x:Type Border}" x:Key="BordeResultado">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Grid.Column" Value="0"/>
+            <Setter Property="Grid.Row" Value="0"/>
+            <Setter Property="Grid.ColumnSpan" Value="3"/>
+        </Style>
+        
+        <!--Botones-->
+        <Style TargetType="{x:Type Button}" x:Key="Botonones">
+
+            <Setter Property="Margin" Value="5"/>
+            <EventSetter Event="Click" Handler="Button_Click"/>
+        </Style>
+        
+        <!--Boton01-->
+        <Style TargetType="{x:Type Button}" x:Key="Boton01" BasedOn="{StaticResource Botonones}">
+            <Setter Property="Grid.Row" Value="1"/>
+            <Setter Property="Grid.Column" Value="0"/>
+            <Setter Property="Tag" Value="1"/>
+        </Style>
+
+        <!--Boton02-->
+        <Style TargetType="{x:Type Button}" x:Key="Boton02" BasedOn="{StaticResource Botonones}">
+            <Setter Property="Grid.Row" Value="1"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Tag" Value="2"/>
+        </Style>
+
+        <!--Boton03-->
+        <Style TargetType="{x:Type Button}" x:Key="Boton03" BasedOn="{StaticResource Botonones}">
+            <Setter Property="Grid.Row" Value="1"/>
+            <Setter Property="Grid.Column" Value="2"/>
+            <Setter Property="Tag" Value="3"/>
+        </Style>
+
+        <!--Boton04-->
+        <Style TargetType="{x:Type Button}" x:Key="Boton04" BasedOn="{StaticResource Botonones}">
+            <Setter Property="Grid.Row" Value="2"/>
+            <Setter Property="Grid.Column" Value="0"/>
+            <Setter Property="Tag" Value="4"/>
+        </Style>
+
+        <!--Boton05-->
+        <Style TargetType="{x:Type Button}" x:Key="Boton05" BasedOn="{StaticResource Botonones}">
+            <Setter Property="Grid.Row" Value="2"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Tag" Value="5"/>
+        </Style>
+
+        <!--Boton06-->
+        <Style TargetType="{x:Type Button}" x:Key="Boton06" BasedOn="{StaticResource Botonones}">
+            <Setter Property="Grid.Row" Value="2"/>
+            <Setter Property="Grid.Column" Value="2"/>
+            <Setter Property="Tag" Value="6"/>
+        </Style>
+
+        <!--Boton07-->
+        <Style TargetType="{x:Type Button}" x:Key="Boton07" BasedOn="{StaticResource Botonones}">
+            <Setter Property="Grid.Row" Value="3"/>
+            <Setter Property="Grid.Column" Value="0"/>
+            <Setter Property="Tag" Value="7"/>
+        </Style>
+
+        <!--Boton08-->
+        <Style TargetType="{x:Type Button}" x:Key="Boton08" BasedOn="{StaticResource Botonones}">
+            <Setter Property="Grid.Row" Value="3"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Tag" Value="8"/>
+        </Style>
+
+        <!--Boton09-->
+        <Style TargetType="{x:Type Button}" x:Key="Boton09" BasedOn="{StaticResource Botonones}">
+            <Setter Property="Grid.Row" Value="3"/>
+            <Setter Property="Grid.Column" Value="2"/>
+            <Setter Property="Tag" Value="9"/>
+        </Style>
+
+        <!--Boton00-->
+        <Style TargetType="{x:Type Button}" x:Key="Boton00" BasedOn="{StaticResource Botonones}">
+            <Setter Property="Grid.Row" Value="4"/>
+            <Setter Property="Grid.Column" Value="0"/>
+            <Setter Property="Tag" Value="0"/>
+            <Setter Property="Grid.ColumnSpan" Value="3"/>
+        </Style>
+
+    </Window.Resources>
+    
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Style="{StaticResource BordeResultado}">
+            <Viewbox  HorizontalAlignment="Right">
+                <TextBlock x:Name="resultadoTextBlock"></TextBlock>
+            </Viewbox>
+        </Border>
+        <Button Style="{StaticResource Boton01}">
+            <Viewbox>
+                <TextBlock>1</TextBlock>
+            </Viewbox>
+        </Button>
+        <Button Style="{StaticResource Boton02}">
+            <Viewbox>
+                <TextBlock>2</TextBlock>
+            </Viewbox>
+        </Button>
+        <Button Style="{StaticResource Boton03}">
+            <Viewbox>
+                <TextBlock>3</TextBlock>
+            </Viewbox>
+        </Button>
+        <Button Style="{StaticResource Boton04}">
+            <Viewbox>
+                <TextBlock>4</TextBlock>
+            </Viewbox>
+        </Button>
+        <Button Style="{StaticResource Boton05}">
+            <Viewbox>
+                <TextBlock>5</TextBlock>
+            </Viewbox>
+        </Button>
+        <Button Style="{StaticResource Boton06}">
+            <Viewbox>
+                <TextBlock>6</TextBlock>
+            </Viewbox>
+        </Button>
+        <Button Style="{StaticResource Boton07}">
+            <Viewbox>
+                <TextBlock>7</TextBlock>
+            </Viewbox>
+        </Button>
+        <Button Style="{StaticResource Boton08}">
+            <Viewbox>
+                <TextBlock>8</TextBlock>
+            </Viewbox>
+        </Button>
+        <Button Style="{StaticResource Boton09}">
+            <Viewbox>
+                <TextBlock>9</TextBlock>
+            </Viewbox>
+        </Button>
+        <Button Style="{StaticResource Boton00}">
+            <Viewbox>
+                <TextBlock>0</TextBlock>
+            </Viewbox>
+        </Button>
+    </Grid>
+
+</Window>
